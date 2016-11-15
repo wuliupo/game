@@ -1,32 +1,52 @@
 function search(matchValue) {
 	var searchStr = matchValue || document.querySelector("#searchItem").value,
 		cellList = document.querySelectorAll(".content .table > .table-row-group > .table-row > .table-cell");
-
-	resetLightFont();
+	
 	removeChildNodesHide(document.querySelector(".content"));
+	resetLightFont();
 	if(searchStr && searchStr.trim()){
-		displayCell(searchStr,cellList);
+		var searchStrArray = searchClue(searchStr);
+			displayCell(searchStrArray,cellList);
 	}
 }
 
-function displayCell(searchStr,cellList){
+function searchClue(searchStr){
+	var searchStrArray = [searchStr],
+		clueCellList = document.querySelectorAll(".content .table.clue > .table-row-group > .table-row > .table-cell.clue-cell");
+	for(var cu = 0; cu < clueCellList.length; cu++){
+		var $currentClueCell = clueCellList[cu],
+			clueHTML = $currentClueCell.innerHTML;
+		if(clueHTML.indexOf(searchStr) > -1){
+			var clueValue = $currentClueCell.parentNode.querySelectorAll(".table-cell")[1].innerHTML;
+			if(searchStrArray.indexOf(clueValue) === -1){
+				searchStrArray.push(clueValue);
+			}
+		}
+	}
+	return searchStrArray;
+}
+
+function displayCell(searchStrArray,cellList){
 	for (var i = 0; i < cellList.length; i++) {
 		var $currentCell = cellList[i],
-			innerHTML = $currentCell.innerHTML;
-		if (innerHTML.indexOf(searchStr) > -1) {
-			if($currentCell.classList.contains("clue-cell")){
-				var matchValue = $currentCell.parentNode.querySelectorAll(".table-cell")[1].innerHTML;
-				if(matchValue && matchValue.trim()){
-					search(matchValue);
-					return;
-				}
-			}else{
-				$currentCell.classList.remove("hide");
-				var lightHtml = "<span class='light'>"+searchStr+"</span>";
+			innerHTML = $currentCell.innerHTML,
+			matchResult = indexOfArray(innerHTML,searchStrArray);
+		if (matchResult.result) {
+			$currentCell.classList.remove("hide");
+			for(var ma = 0; ma < matchResult.matchArray.length; ma++){
+				var matchStr = matchResult.matchArray[ma],
+					lightHtml = "<span class='light'>"+matchStr+"</span>";
 //				$currentCell.innerHTML = innerHTML.replace(searchStr,lightHtml);
-				$currentCell.innerHTML = innerHTML.split(searchStr).join(lightHtml);//replaceAll
+				$currentCell.innerHTML = innerHTML.split(matchStr).join(lightHtml);//replaceAll
 			}
-		} else{
+//			if($currentCell.classList.contains("clue-cell")){
+//				var matchValue = $currentCell.parentNode.querySelectorAll(".table-cell")[1].innerHTML;
+//				if(matchValue && matchValue.trim()){
+//					search(matchValue);
+//					return;
+//				}
+//			}
+		} else if($currentCell.querySelectorAll("span.light").length === 0){
 			$currentCell.classList.add("hide");
 		}
 	}
@@ -53,7 +73,6 @@ function displayChapter(){
 					removeChildNodesHide($currentRow);
 				}
 			}
-			
 			
 			if($currentGroup.querySelectorAll(".table-row:not(.hide)").length === 0){
 				$currentGroup.classList.add("hide");
@@ -96,4 +115,18 @@ function resetLightFont(){
 		var $currentLight = lights[l];
 		$currentLight.outerHTML = $currentLight.innerHTML;
 	}
+}
+
+function indexOfArray(str,array){
+	var matchResult = {
+		"result": false,
+		"matchArray": []
+	}
+	for(var i=0; i< array.length; i++){
+		if(str.indexOf(array[i]) > -1){
+			matchResult.result = true;
+			matchResult.matchArray.push(array[i]);
+		}
+	}
+	return matchResult;
 }
