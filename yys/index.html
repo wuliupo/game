@@ -4,19 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
 <meta name="author" content="ezreal.Ni(WeChat:lover86370881)">
-<title>yys</title>
+<title>阴阳师手游</title>
 <style>
 body{background-color:#f1f1f1;font-family:'Open Sans', Helvetica, Tahoma, Arial, 'Microsoft YaHei', sans-serif;}
 @media only screen and (min-width:0){html{font-size:14px;}}
 @media only screen and (min-width:992px){html{font-size:14.5px;}}
 @media only screen and (min-width:1200px){html{font-size:15px;}}
 .hide{display:none!important;}
-.content{margin-top:60px;}
-.search{position:fixed;width:93%;left:10px;top:10px;}
-input{background-color:#FFF;border:none;border-radius:3px;transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;-moz-transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;-webkit-transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;-o-transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;background-position:100% !important;z-index:-1;width:100%;height:39px;padding-top:4px;padding-left:7px;font:16px arial;}
+.content{margin:60px auto;max-width:600px;}
+.search{position:fixed;width:600px;left:50%;top:10px;margin-left:-300px;}
+input{background-color:#FFF;border:1px solid #CCC;border-radius:3px;transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;-moz-transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;-webkit-transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;-o-transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;background-position:100% !important;z-index:-1;width:100%;height:39px;padding-top:4px;padding-left:7px;font:16px arial;}
 input:focus{outline:none;box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);}
 .table{display:table;border-collapse:collapse;min-width:30%;}
-.table-caption{display:table-caption;border:none;padding:15px 5px 5px 5px;text-align:left;vertical-align:middle;font-weight:bold;}
+.table-caption{display:table-caption;border:none;padding:15px 5px 5px;text-align:left;vertical-align:middle;font-size:24px;font-weight:bold;}
 .table-row-group{display:table-row-group;}
 .table-row{display:table-row;}
 .table-row .table-cell:first-child,.table.clue .table-row .table-cell:nth-child(2){white-space:nowrap;vertical-align:top;}
@@ -24,16 +24,28 @@ input:focus{outline:none;box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rg
 .chapter-header .table-cell{padding-top:10px;font-weight:bolder;}
 .table-row.chapter-header{border-bottom:1px solid #d0d0d0;}
 span.light{color:#dd4b39;}
+.items{margin:0;padding:4px;border:1px solid #888;}
+.items li{display:inline-block;margin:2px;cursor:pointer;text-decoration:underline;}
+@media only screen and (min-width:800px){.items{position:fixed;top:10px;width:100px;margin-left:-150px;}.items li{display:block;}}
 </style>
 </head>
 <body>
 <div class="content">
+<h1>阴阳师手游妖怪出处汇总</h1>
+<p>这是悬赏封印活动需要击杀的各等级妖怪。本篇覆盖了探索副本、御魂以及妖气封印出现的怪物。击杀范围包括探索章节副本、结界图片、御魂副本、妖气封印、式神挑战、式神碎片、斗技。<a href="http://nixin.online/yys/">http://nixin.online/yys/</a></p>
 <div class="search">
 	<input id="searchItem" oninput="search()"></input>
 </div>
+<ul class="items" id="items"><li>天邪鬼绿</li><li>九命猫</li><li>提灯小僧</li><li>座敷童子</li><li>天邪鬼黄</li><li>铁鼠</li><li>三尾狐</li><li>雨女</li><li>青蛙瓷器</li><li>管狐</li><li>帚神</li><li>食发鬼</li><li>灯笼鬼</li><li>巫蛊师</li><li>蝴蝶精</li><li>天邪鬼赤</li><li>鲤鱼精</li><li>河童</li><li>唐纸扇妖</li><li>桃花精</li><li>天邪鬼青</li><li>山兔</li><li>武士之灵</li><li>丑时之女</li><li>寄生魂</li><li>饿鬼</li><li>童女</li><li>童男</li><li>涂壁</li><li>兵俑</li><li>盗墓小鬼</li><li>狸猫</li><li>跳跳弟弟</li><li>跳跳妹妹</li><li>赤舌</li><li>山童</li><li>萤草</li><li>鸦天狗</li><li>独眼小僧</li><li>觉</li><li>镰鼬</li></ul>
+<script>
+document.getElementById('items').onclick = function(e){
+	if(e && e.target && e.target.tagName && e.target.tagName.toUpperCase() === 'LI'){
+		search(document.getElementById('searchItem').value = e.target.innerText || e.target.textContent);
+	}
+};
+</script>
 <div class="table explore">
 	<div class="table-caption">探索副本</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第一章</div>
@@ -60,7 +72,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">九命猫×3</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第二章</div>
@@ -91,7 +102,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">座敷童子×1   天邪鬼绿×2   天邪鬼青×1</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第三章</div>
@@ -126,7 +136,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">凤凰火×1    寄生魂×3</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第四章</div>
@@ -161,7 +170,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">雨女×1   青蛙瓷器×1   帚神×2</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第五章</div>
@@ -196,7 +204,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">食发鬼×1   灯笼鬼×1   天邪鬼青×2</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第六章</div>
@@ -219,7 +226,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">巫蛊师×1   天邪鬼绿×3</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第七章</div>
@@ -258,7 +264,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">妖狐×1   涂壁×1   座敷童子×2；二回合 - 妖狐×1   寄生魂×1   天邪鬼赤×2</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第八章</div>
@@ -289,7 +294,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">樱花妖×1   天邪鬼青×1   提灯小僧×2；二回合 - 桃花妖×1   帚神×1   蝴蝶精×2</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第九章</div>
@@ -324,7 +328,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">孟婆×1   饿鬼×3；二回合 - 孟婆×1   灯笼鬼×1   鸦天狗×2</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第十章</div>
@@ -359,7 +362,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">酒吞童子×1   跳跳哥哥×1   食发鬼×2；二回合 - 酒吞童子×1   兵俑×1   骨女×2</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第十一章</div>
@@ -394,7 +396,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">鬼女红叶×1   童女×1   天邪鬼青×2；二回合 - 鬼女红叶×1   骨女×1   觉×2</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第十二章</div>
@@ -429,7 +430,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">雪女×1   寄生魂×1   武士之灵×2；二回合 - 雪女×1   跳跳妹妹×1   跳跳哥哥×2</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第十三章</div>
@@ -464,7 +464,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">首无×1   骨女×1   灯笼鬼×1   山兔×1</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第十四章</div>
@@ -499,7 +498,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">食梦貘×1   天邪鬼赤×3；二回合 - 食梦貘×4</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第十五章</div>
@@ -534,7 +532,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">跳跳妹妹×1   九命猫×3</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第十六章</div>
@@ -569,7 +566,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">判官×1   鬼使黑×1   鬼使白×1</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第十七章</div>
@@ -604,7 +600,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">荒川之主×1   灯笼鬼×1   骨女×1   山兔×1</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第十八章</div>
@@ -642,7 +637,6 @@ span.light{color:#dd4b39;}
 </div>
 <div class="table equipment">
 	<div class="table-caption">御魂副本</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第一层</div>
@@ -661,7 +655,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">八歧大蛇×1   天邪鬼赤×2</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第二层</div>
@@ -680,7 +673,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">八歧大蛇×1   童女×2</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第三层</div>
@@ -699,7 +691,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">八歧大蛇×1   座敷童子×2</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第四层</div>
@@ -718,7 +709,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">八歧大蛇×1   食梦貘×2</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第五层</div>
@@ -737,7 +727,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">八歧大蛇×1   孟婆×2</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第六层</div>
@@ -756,7 +745,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">八歧大蛇×1   骨女×2</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第七层</div>
@@ -775,7 +763,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">八歧大蛇×1   荒川之主×2</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第八层</div>
@@ -794,7 +781,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">八歧大蛇×1   茨木童子×2</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第九层</div>
@@ -813,7 +799,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">八歧大蛇×1   两面佛×2</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">第十层</div>
@@ -835,7 +820,6 @@ span.light{color:#dd4b39;}
 </div>
 <div class="table monster">
 	<div class="table-caption">妖气封印</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">跳跳哥哥</div>
@@ -854,7 +838,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">跳跳哥哥×3   天邪鬼青×2   天邪鬼黄×1</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">椒图</div>
@@ -873,7 +856,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">椒图×3   天邪鬼绿×2   天邪鬼黄×1</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">骨女</div>
@@ -892,7 +874,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">骨女×3   天邪鬼绿×3</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">饿鬼</div>
@@ -911,7 +892,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">饿鬼×3   提灯小僧×3</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">二口女</div>
@@ -930,7 +910,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">二口女×1   提灯小僧×3</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">海坊主</div>
@@ -949,7 +928,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">海坊主×3   提灯小僧×3</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">鬼使黑</div>
@@ -968,7 +946,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">鬼使黑×3   提灯小僧×3</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">金币妖怪</div>
@@ -987,7 +964,6 @@ span.light{color:#dd4b39;}
 			<div class="table-cell">铁鼠×6</div>
 		</div>
 	</div>
-	
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
 			<div class="table-cell">经验妖怪</div>
@@ -1212,7 +1188,6 @@ span.light{color:#dd4b39;}
 function search(matchValue) {
 	var searchStr = matchValue || document.querySelector("#searchItem").value,
 		cellList = document.querySelectorAll(".content .table > .table-row-group > .table-row > .table-cell");
-	
 	removeChildNodesHide(document.querySelector(".content"));
 	resetLightFont();
 	if(searchStr && searchStr.trim()){
@@ -1258,11 +1233,9 @@ function displayChapter(){
 	for(var t = 0; t < tableList.length; t++){
 		var $currentTable = tableList[t],
 			groupList = $currentTable.querySelectorAll(".table-row-group");
-		
 		for(var g = 0; g < groupList.length; g++){
 			var $currentGroup = groupList[g],
 				rowList = $currentGroup.querySelectorAll(".table-row");
-			
 			for(var r = 0; r < rowList.length; r++){
 				var $currentRow = rowList[r];
 				if($currentRow.querySelectorAll(".table-cell:not(.hide)").length === 0){
@@ -1272,7 +1245,6 @@ function displayChapter(){
 					removeChildNodesHide($currentRow);
 				}
 			}
-			
 			if($currentGroup.querySelectorAll(".table-row:not(.hide)").length === 0){
 				$currentGroup.classList.add("hide");
 			}else{
@@ -1290,9 +1262,8 @@ function displayChapter(){
 						removeChildNodesHide($currentRow);
 					}
 				}
-			}	
+			}
 		}
-		
 		if($currentTable.querySelectorAll(".table-row-group:not(.hide)").length === 0){
 			$currentTable.classList.add("hide");
 		}else{
