@@ -13,7 +13,7 @@ body{background-color:#f1f1f1;font-family:'Open Sans', Helvetica, Tahoma, Arial,
 .hide{display:none!important;}
 .content{margin:60px auto;max-width:600px;}
 .search{position:fixed;width:600px;left:50%;top:10px;margin-left:-300px;}
-input{background-color:#FFF;border:1px solid #CCC;border-radius:3px;transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;-moz-transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;-webkit-transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;-o-transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;background-position:100% !important;z-index:-1;width:100%;height:39px;padding-top:4px;padding-left:7px;font:16px arial;}
+input{background-color:#FFF;border:1px solid #CCC;border-radius:3px;transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;-moz-transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;-webkit-transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;-o-transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;background-position:100% !important;z-index:-1;width:100%;height:39px;padding-top:4px;padding-left:7px;font:16px arial;box-sizing:border-box;}
 input:focus{outline:none;box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);}
 .table{display:table;border-collapse:collapse;min-width:30%;}
 .table-caption{display:table-caption;border:none;padding:15px 5px 5px;text-align:left;vertical-align:middle;font-size:24px;font-weight:bold;}
@@ -38,12 +38,16 @@ span.light{color:#dd4b39;}
 <div class="search">
 	<input id="searchItem" oninput="search()"></input>
 </div>
-<ul class="items" id="items"><li>天邪鬼绿</li><li>九命猫</li><li>提灯小僧</li><li>座敷童子</li><li>天邪鬼黄</li><li>铁鼠</li><li>三尾狐</li><li>雨女</li><li>青蛙瓷器</li><li>管狐</li><li>帚神</li><li>食发鬼</li><li>灯笼鬼</li><li>巫蛊师</li><li>蝴蝶精</li><li>天邪鬼赤</li><li>鲤鱼精</li><li>河童</li><li>唐纸扇妖</li><li>桃花精</li><li>天邪鬼青</li><li>山兔</li><li>武士之灵</li><li>丑时之女</li><li>寄生魂</li><li>饿鬼</li><li>童女</li><li>童男</li><li>涂壁</li><li>兵俑</li><li>盗墓小鬼</li><li>狸猫</li><li>跳跳弟弟</li><li>跳跳妹妹</li><li>赤舌</li><li>山童</li><li>萤草</li><li>鸦天狗</li><li>独眼小僧</li><li>觉</li><li>镰鼬</li></ul>
+<ul class="items" id="items"><li>天邪鬼绿</li><li>九命猫</li><li>提灯小僧</li><li>座敷童子</li><li>天邪鬼黄</li><li>铁鼠</li><li>三尾狐</li><li>雨女</li><li>青蛙瓷器</li><li>管狐</li><li>帚神</li><li>食发鬼</li><li>灯笼鬼</li><li>巫蛊师</li><li>蝴蝶精</li><li>天邪鬼赤</li><li>鲤鱼精</li><li>河童</li><li>唐纸伞妖</li><li>桃花妖</li><li>天邪鬼青</li><li>山兔</li><li>武士之灵</li><li>丑时之女</li><li>寄生魂</li><li>饿鬼</li><li>童女</li><li>童男</li><li>涂壁</li><li>兵俑</li><li>盗墓小鬼</li><li>狸猫</li><li>跳跳哥哥</li><li>跳跳妹妹</li><li>赤舌</li><li>山童</li><li>萤草</li><li>鸦天狗</li><li>独眼小僧</li><li>觉</li><li>镰鼬</li></ul>
 <script>
 document.getElementById('items').onclick = function(e){
+	var val = '';
 	if(e && e.target && e.target.tagName && e.target.tagName.toUpperCase() === 'LI'){
-		search(document.getElementById('searchItem').value = e.target.innerText || e.target.textContent);
+		e.preventDefault();
+		e.stopPropagation();
+		val = e.target.innerText || e.target.textContent;
 	}
+	search(document.getElementById('searchItem').value = val);
 };
 </script>
 <div class="table explore">
@@ -1188,23 +1192,17 @@ document.getElementById('items').onclick = function(e){
 </div>
 <script>
 function search(matchValue) {
-	var searchStr = matchValue || document.querySelector("#searchItem").value,
-		cellList = document.querySelectorAll(".content .table > .table-row-group > .table-row > .table-cell");
+	matchValue = (matchValue || document.getElementById("searchItem").value || '').trim();
 	removeChildNodesHide(document.querySelector(".content"));
 	resetLightFont();
-	if(searchStr && searchStr.trim()){
-		var searchStrArray = searchClue(searchStr);
-			displayCell(searchStrArray,cellList);
-	}
+	matchValue && displayCell(searchClue(matchValue), document.querySelectorAll(".content .table > .table-row-group > .table-row > .table-cell"));
 }
 function searchClue(searchStr){
 	var searchStrArray = [searchStr],
 		clueCellList = document.querySelectorAll(".content .table.clue > .table-row-group > .table-row > .table-cell.clue-cell");
-	for(var cu = 0; cu < clueCellList.length; cu++){
-		var $currentClueCell = clueCellList[cu],
-			clueHTML = $currentClueCell.innerHTML;
-		if(clueHTML.indexOf(searchStr) > -1){
-			var clueValue = $currentClueCell.parentNode.querySelectorAll(".table-cell")[1].innerHTML;
+	for(var i = 0; i < clueCellList.length; i++){
+		if(clueCellList[i].innerHTML.indexOf(searchStr) > -1){
+			var clueValue = clueCellList[i].parentNode.querySelectorAll(".table-cell")[1].innerHTML;
 			if(searchStrArray.indexOf(clueValue) === -1){
 				searchStrArray.push(clueValue);
 			}
@@ -1212,19 +1210,19 @@ function searchClue(searchStr){
 	}
 	return searchStrArray;
 }
-function displayCell(searchStrArray,cellList){
+function displayCell(searchStrArray, cellList){
 	for (var i = 0; i < cellList.length; i++) {
 		var $currentCell = cellList[i],
 			innerHTML = $currentCell.innerHTML,
-			matchResult = indexOfArray(innerHTML,searchStrArray);
-		if (matchResult.result) {
+			matchResult = indexOfArray(innerHTML, searchStrArray);
+		if (matchResult.length) {
 			$currentCell.classList.remove("hide");
-			for(var ma = 0; ma < matchResult.matchArray.length; ma++){
-				var matchStr = matchResult.matchArray[ma],
-					lightHtml = "<span class='light'>"+matchStr+"</span>";
-				$currentCell.innerHTML = innerHTML.split(matchStr).join(lightHtml);//replaceAll
+			for(var j = 0; j < matchResult.length; j++){
+				$currentCell.innerHTML = innerHTML.replace(new RegExp(matchResult[j], 'g'), function(matchStr){
+					return "<span class='light'>" + matchStr + "</span>";
+				});
 			}
-		} else if($currentCell.querySelectorAll("span.light").length === 0){
+		} else if(!$currentCell.querySelectorAll("span.light").length){
 			$currentCell.classList.add("hide");
 		}
 	}
@@ -1240,14 +1238,14 @@ function displayChapter(){
 				rowList = $currentGroup.querySelectorAll(".table-row");
 			for(var r = 0; r < rowList.length; r++){
 				var $currentRow = rowList[r];
-				if($currentRow.querySelectorAll(".table-cell:not(.hide)").length === 0){
+				if(!$currentRow.querySelectorAll(".table-cell:not(.hide)").length){
 					$currentRow.classList.add("hide");
 				}else{
 					$currentRow.classList.remove("hide");
 					removeChildNodesHide($currentRow);
 				}
 			}
-			if($currentGroup.querySelectorAll(".table-row:not(.hide)").length === 0){
+			if(!$currentGroup.querySelectorAll(".table-row:not(.hide)").length){
 				$currentGroup.classList.add("hide");
 			}else{
 				$currentGroup.classList.remove("hide");
@@ -1259,14 +1257,13 @@ function displayChapter(){
 					removeChildNodesHide($currentGroupHeader);
 				}else{
 					for(var rr = 0; rr < rowList.length; rr++){
-						var $currentRow = rowList[rr];
-						$currentRow.classList.remove("hide");
-						removeChildNodesHide($currentRow);
+						rowList[rr].classList.remove("hide");
+						removeChildNodesHide(rowList[rr]);
 					}
 				}
 			}
 		}
-		if($currentTable.querySelectorAll(".table-row-group:not(.hide)").length === 0){
+		if(!$currentTable.querySelectorAll(".table-row-group:not(.hide)").length){
 			$currentTable.classList.add("hide");
 		}else{
 			$currentTable.classList.remove("hide");
@@ -1282,19 +1279,14 @@ function removeChildNodesHide(element){
 function resetLightFont(){
 	var lights = document.querySelectorAll("span.light");
 	for(var l = 0; l < lights.length; l++){
-		var $currentLight = lights[l];
-		$currentLight.outerHTML = $currentLight.innerHTML;
+		lights[l].outerHTML = lights[l].innerHTML;
 	}
 }
-function indexOfArray(str,array){
-	var matchResult = {
-		"result": false,
-		"matchArray": []
-	}
-	for(var i=0; i< array.length; i++){
+function indexOfArray(str, array){
+	var matchResult = [];
+	for(var i = 0; i < array.length; i++){
 		if(str.indexOf(array[i]) > -1){
-			matchResult.result = true;
-			matchResult.matchArray.push(array[i]);
+			matchResult.push(array[i]);
 		}
 	}
 	return matchResult;
