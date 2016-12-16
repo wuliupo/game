@@ -12,7 +12,7 @@ body{background-color:#f1f1f1;font-family:'Open Sans', Helvetica, Tahoma, Arial,
 @media only screen and (min-width:1200px){html{font-size:15px;}}
 .hide{display:none!important;}
 .content{margin:60px auto;max-width:600px;}
-.search{position:fixed;width:600px;left:50%;top:10px;margin-left:-300px;}
+.search{position:fixed;width:600px;left:50%;top:0;margin-left:-300px;padding-top:10px;background-color:#f1f1f1;}
 input{background-color:#FFF;border:1px solid #CCC;border-radius:3px;transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;-moz-transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;-webkit-transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;-o-transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;background-position:100% !important;z-index:-1;width:100%;height:39px;padding-top:4px;padding-left:7px;font:16px arial;box-sizing:border-box;}
 input:focus{outline:none;box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);}
 .table{display:table;border-collapse:collapse;min-width:30%;}
@@ -1195,101 +1195,94 @@ function search(matchValue) {
 	matchValue = (matchValue || document.getElementById("searchItem").value || '').trim();
 	removeChildNodesHide(document.querySelector(".content"));
 	resetLightFont();
-	matchValue && displayCell(searchClue(matchValue), document.querySelectorAll(".content .table > .table-row-group > .table-row > .table-cell"));
+	matchValue && displayCell(searchClue(matchValue), query2(".content .table > .table-row-group > .table-row > .table-cell"));
 }
 function searchClue(searchStr){
-	var searchStrArray = [searchStr],
-		clueCellList = document.querySelectorAll(".content .table.clue > .table-row-group > .table-row > .table-cell.clue-cell");
-	for(var i = 0; i < clueCellList.length; i++){
-		if(clueCellList[i].innerHTML.indexOf(searchStr) > -1){
-			var clueValue = clueCellList[i].parentNode.querySelectorAll(".table-cell")[1].innerHTML;
+	var searchStrArray = [searchStr];
+	query2(".content .table.clue > .table-row-group > .table-row > .table-cell.clue-cell").map(function(node){
+		if(node.innerHTML.indexOf(searchStr) > -1){
+			var clueValue = node.parentNode.querySelectorAll(".table-cell")[1].innerHTML;
 			if(searchStrArray.indexOf(clueValue) === -1){
 				searchStrArray.push(clueValue);
 			}
 		}
-	}
+	});
 	return searchStrArray;
 }
 function displayCell(searchStrArray, cellList){
-	for (var i = 0; i < cellList.length; i++) {
-		var $currentCell = cellList[i],
-			innerHTML = $currentCell.innerHTML,
-			matchResult = indexOfArray(innerHTML, searchStrArray);
+	cellList.map(function(node) {
+		var matchResult = indexOfArray(node.innerHTML, searchStrArray);
 		if (matchResult.length) {
-			$currentCell.classList.remove("hide");
-			for(var j = 0; j < matchResult.length; j++){
-				$currentCell.innerHTML = innerHTML.replace(new RegExp(matchResult[j], 'g'), function(matchStr){
+			node.classList.remove("hide");
+			matchResult.map(function(node2){
+				node.innerHTML = node.innerHTML.replace(new RegExp(node2, 'g'), function(matchStr){
 					return "<span class='light'>" + matchStr + "</span>";
 				});
-			}
-		} else if(!$currentCell.querySelectorAll("span.light").length){
-			$currentCell.classList.add("hide");
+			});
+		} else if(!node.querySelectorAll("span.light").length){
+			node.classList.add("hide");
 		}
-	}
+	});
 	displayChapter();
 }
 function displayChapter(){
-	var tableList = document.querySelectorAll(".content .table");
-	for(var t = 0; t < tableList.length; t++){
-		var $currentTable = tableList[t],
-			groupList = $currentTable.querySelectorAll(".table-row-group");
-		for(var g = 0; g < groupList.length; g++){
-			var $currentGroup = groupList[g],
-				rowList = $currentGroup.querySelectorAll(".table-row");
-			for(var r = 0; r < rowList.length; r++){
-				var $currentRow = rowList[r];
-				if(!$currentRow.querySelectorAll(".table-cell:not(.hide)").length){
-					$currentRow.classList.add("hide");
+	query2(".content .table").map(function(node){
+		query2(".table-row-group", node).map(function(node2){
+			var rowList = query2(".table-row", node2);
+			rowList.map(function(node3){
+				if(!node3.querySelectorAll(".table-cell:not(.hide)").length){
+					node3.classList.add("hide");
 				}else{
-					$currentRow.classList.remove("hide");
-					removeChildNodesHide($currentRow);
+					node3.classList.remove("hide");
+					removeChildNodesHide(node3);
 				}
-			}
-			if(!$currentGroup.querySelectorAll(".table-row:not(.hide)").length){
-				$currentGroup.classList.add("hide");
+			});
+			if(!node2.querySelectorAll(".table-row:not(.hide)").length){
+				node2.classList.add("hide");
 			}else{
-				$currentGroup.classList.remove("hide");
-				var $currentGroupHeader = $currentGroup.querySelector(".table-row.chapter-header"),
-					$currentGroupContent = $currentGroup.querySelectorAll(".table-row:not(.chapter-header)");
+				node2.classList.remove("hide");
+				var $currentGroupHeader = node2.querySelector(".table-row.chapter-header"),
+					$currentGroupContent = node2.querySelectorAll(".table-row:not(.chapter-header)");
 				if($currentGroupHeader.classList.contains("hide")
 						&& $currentGroupContent[0].querySelectorAll(".table-cell")[0].innerHTML.indexOf("回合") === -1){
 					$currentGroupHeader.classList.remove("hide");
 					removeChildNodesHide($currentGroupHeader);
 				}else{
-					for(var rr = 0; rr < rowList.length; rr++){
-						rowList[rr].classList.remove("hide");
-						removeChildNodesHide(rowList[rr]);
-					}
+					rowList.map(function(node3){
+						node3.classList.remove("hide");
+						removeChildNodesHide(node3);
+					});
 				}
 			}
-		}
-		if(!$currentTable.querySelectorAll(".table-row-group:not(.hide)").length){
-			$currentTable.classList.add("hide");
+		});
+		if(!node.querySelectorAll(".table-row-group:not(.hide)").length){
+			node.classList.add("hide");
 		}else{
-			$currentTable.classList.remove("hide");
+			node.classList.remove("hide");
 		}
-	}
+	});
 }
 function removeChildNodesHide(element){
-	var childNodes = element.querySelectorAll(".hide");
-	for(var n = 0 ; n < childNodes.length; n++){
-		childNodes[n].classList.remove("hide");
-	}
+	query2(".hide", element).map(function(node){
+		node.classList.remove("hide");
+	});
 }
 function resetLightFont(){
-	var lights = document.querySelectorAll("span.light");
-	for(var l = 0; l < lights.length; l++){
-		lights[l].outerHTML = lights[l].innerHTML;
-	}
+	query2("span.light").map(function(node){
+		node.outerHTML = node.innerHTML;
+	});
 }
 function indexOfArray(str, array){
 	var matchResult = [];
-	for(var i = 0; i < array.length; i++){
-		if(str.indexOf(array[i]) > -1){
-			matchResult.push(array[i]);
+	(array || []).map(function(a){
+		if(str.indexOf(a) > -1){
+			matchResult.push(a);
 		}
-	}
+	});
 	return matchResult;
+}
+function query2(query, selector){
+	return Array.prototype.slice.call((selector || document).querySelectorAll(query));
 }
 </script>
 </body>
