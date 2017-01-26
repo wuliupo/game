@@ -12,8 +12,8 @@ body{background-color:#f1f1f1;font-family:'Open Sans', Helvetica, Tahoma, Arial,
 @media only screen and (min-width:1200px){html{font-size:15px;}}
 .hide{display:none!important;}
 .content{margin:60px auto;max-width:600px;}
-.search{position:fixed;width:600px;left:50%;top:0;margin-left:-300px;padding-top:10px;background-color:#f1f1f1;}
-input{background-color:#FFF;border:1px solid #CCC;border-radius:3px;transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;-moz-transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;-webkit-transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;-o-transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;background-position:100% !important;z-index:-1;width:100%;height:39px;padding-top:4px;padding-left:7px;font:16px arial;box-sizing:border-box;}
+.search{position:fixed;width:600px;left:50%;top:10px;margin-left:-300px;}
+input{background-color:#FFF;border:1px solid #CCC;border-radius:3px;transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;-moz-transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;-webkit-transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;-o-transition:all 450ms cubic-bezier(0.23,1,0.32,1) 0ms;background-position:100% !important;z-index:-1;width:100%;height:39px;padding-top:4px;padding-left:7px;font:16px arial;}
 input:focus{outline:none;box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);}
 .table{display:table;border-collapse:collapse;min-width:30%;}
 .table-caption{display:table-caption;border:none;padding:15px 5px 5px;text-align:left;vertical-align:middle;font-size:24px;font-weight:bold;}
@@ -24,36 +24,36 @@ input:focus{outline:none;box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rg
 .chapter-header .table-cell{padding-top:10px;font-weight:bolder;}
 .table-row.chapter-header{border-bottom:1px solid #d0d0d0;}
 span.light{color:#dd4b39;}
-.items{margin:0;padding:4px;border:1px solid #888;line-height:30px;}
+.items{margin:0;padding:4px;border:1px solid #888;}
 .items li{display:inline-block;margin:2px;cursor:pointer;text-decoration:underline;}
-.items b{float:right;}
-@media only screen and (min-width:950px){.items{position:fixed;top:10px;width:100px;margin-left:-150px;bottom:10px;overflow-y:auto;line-height:20px;}.items li{display:block;}}
-@media only screen and (max-width:640px){.search{left:10px;right:10px;margin-left:0;width:inherit;}}
+.quicknav li{display:block;}
+.quicknav.items{position:fixed;right:10%;width:36px;background-color:#FFF;}
+@media only screen and (min-width:800px){.items{position:fixed;top:10px;width:100px;margin-left:-150px;}.items li{display:block;}}
 </style>
 </head>
 <body>
 <div class="content">
 <h1>阴阳师手游妖怪出处汇总</h1>
 <p>这是悬赏封印活动需要击杀的各等级妖怪。本篇覆盖了探索副本、御魂以及妖气封印出现的怪物。击杀范围包括探索章节副本、结界图片、御魂副本、妖气封印、式神挑战、式神碎片、斗技。<a href="http://nixin.online/yys" target="_blank">http://nixin.online/yys</a></p>
-<p><a href="https://github.com/wuliupo/game/blob/master/yys/README.md">github.com/wuliupo/game/blob/master/yys/</a></p>
 <div class="search">
 	<input id="searchItem" oninput="search()"></input>
 </div>
-<ul class="items" id="items"><li>天邪鬼绿</li><li>九命猫</li><li>提灯小僧</li><li>座敷童子</li><li>天邪鬼黄</li><li>铁鼠</li><li>三尾狐</li><li>雨女</li><li>青蛙瓷器</li><li>管狐</li><li>帚神</li><li>食发鬼</li><li>灯笼鬼</li><li>巫蛊师</li><li>蝴蝶精</li><li>天邪鬼赤</li><li>鲤鱼精</li><li>河童</li><li>唐纸伞妖</li><li>桃花妖</li><li>天邪鬼青</li><li>山兔</li><li>武士之灵</li><li>丑时之女</li><li>寄生魂</li><li>饿鬼</li><li>童女</li><li>童男</li><li>涂壁</li><li>兵俑</li><li>盗墓小鬼</li><li>狸猫</li><li>跳跳哥哥</li><li>跳跳弟弟</li><li>跳跳妹妹</li><li>赤舌</li><li>山童</li><li>萤草</li><li>鸦天狗</li><li>独眼小僧</li><li>觉</li><li>镰鼬</li><li>孟婆</li> <b>移除</b></ul>
+<ul class="items" id="items"><li>天邪鬼绿</li><li>九命猫</li><li>提灯小僧</li><li>座敷童子</li><li>天邪鬼黄</li><li>铁鼠</li><li>三尾狐</li><li>雨女</li><li>青蛙瓷器</li><li>管狐</li><li>帚神</li><li>食发鬼</li><li>灯笼鬼</li><li>巫蛊师</li><li>蝴蝶精</li><li>天邪鬼赤</li><li>鲤鱼精</li><li>河童</li><li>唐纸扇妖</li><li>桃花精</li><li>天邪鬼青</li><li>山兔</li><li>武士之灵</li><li>丑时之女</li><li>寄生魂</li><li>饿鬼</li><li>童女</li><li>童男</li><li>涂壁</li><li>兵俑</li><li>盗墓小鬼</li><li>狸猫</li><li>跳跳弟弟</li><li>跳跳妹妹</li><li>赤舌</li><li>山童</li><li>萤草</li><li>鸦天狗</li><li>独眼小僧</li><li>觉</li><li>镰鼬</li></ul>
 <script>
 document.getElementById('items').onclick = function(e){
-	var oldV = (document.getElementById('searchItem').value || '').trim(), newV = '';
 	if(e && e.target && e.target.tagName && e.target.tagName.toUpperCase() === 'LI'){
-		e.preventDefault();
-		e.stopPropagation();
-		oldV = oldV.split(' ');
-		oldV.push(e.target.innerText || e.target.textContent);
-		newV = oldV.join(' ').trim();
+		search(document.getElementById('searchItem').value = e.target.innerText || e.target.textContent);
 	}
-	search(document.getElementById('searchItem').value = newV);
 };
 </script>
-<div class="table explore">
+<ul class="quicknav items">
+    <li><a href="#">顶部</a></li>
+    <li><a href="#explore">探索</a></li>
+    <li><a href="#equipment">御魂</a></li>
+    <li><a href="#monster">妖气</a></li>
+    <li><a href="#clue">线索</a></li>
+</ul>
+<div class="table explore" id="explore">
 	<div class="table-caption">探索副本</div>
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
@@ -644,7 +644,7 @@ document.getElementById('items').onclick = function(e){
 		</div>
 	</div>
 </div>
-<div class="table equipment">
+<div class="table equipment" id="equipment">
 	<div class="table-caption">御魂副本</div>
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
@@ -827,7 +827,7 @@ document.getElementById('items').onclick = function(e){
 		</div>
 	</div>
 </div>
-<div class="table monster">
+<div class="table monster" id="monster">
 	<div class="table-caption">妖气封印</div>
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
@@ -992,7 +992,7 @@ document.getElementById('items').onclick = function(e){
 		</div>
 	</div>
 </div>
-<div class="table clue">
+<div class="table clue" id="clue">
 	<div class="table-caption">神秘线索</div>
 	<div class="table-row-group chapter">
 		<div class="table-row chapter-header">
@@ -1195,97 +1195,116 @@ document.getElementById('items').onclick = function(e){
 </div>
 <script>
 function search(matchValue) {
-	matchValue = (matchValue || document.getElementById("searchItem").value || '').trim();
+	var searchStr = matchValue || document.querySelector("#searchItem").value,
+		cellList = document.querySelectorAll(".content .table > .table-row-group > .table-row > .table-cell");
 	removeChildNodesHide(document.querySelector(".content"));
 	resetLightFont();
-	matchValue && displayCell(searchClue(matchValue), query2(".content .table > .table-row-group > .table-row > .table-cell"));
+	if(searchStr && searchStr.trim()){
+		var searchStrArray = searchClue(searchStr);
+			displayCell(searchStrArray,cellList);
+	}
 }
 function searchClue(searchStr){
-	var searchStrArray = (searchStr || '').split(' ');
-	query2(".content .table.clue > .table-row-group > .table-row > .table-cell.clue-cell").map(function(node){
-		if(node.innerHTML.indexOf(searchStr) > -1){
-			var clueValue = node.parentNode.querySelectorAll(".table-cell")[1].innerHTML;
+	var searchStrArray = [searchStr],
+		clueCellList = document.querySelectorAll(".content .table.clue > .table-row-group > .table-row > .table-cell.clue-cell");
+	for(var cu = 0; cu < clueCellList.length; cu++){
+		var $currentClueCell = clueCellList[cu],
+			clueHTML = $currentClueCell.innerHTML;
+		if(clueHTML.indexOf(searchStr) > -1){
+			var clueValue = $currentClueCell.parentNode.querySelectorAll(".table-cell")[1].innerHTML;
 			if(searchStrArray.indexOf(clueValue) === -1){
 				searchStrArray.push(clueValue);
 			}
 		}
-	});
+	}
 	return searchStrArray;
 }
-function displayCell(searchStrArray, cellList){
-	cellList.map(function(node) {
-		var matchResult = indexOfArray(node.innerHTML, searchStrArray);
-		if (matchResult.length) {
-			node.classList.remove("hide");
-			matchResult.map(function(node2){
-				node.innerHTML = node.innerHTML.replace(new RegExp(node2, 'g'), function(matchStr){
-					return "<span class='light'>" + matchStr + "</span>";
-				});
-			});
-		} else if(!node.querySelectorAll("span.light").length){
-			node.classList.add("hide");
+function displayCell(searchStrArray,cellList){
+	for (var i = 0; i < cellList.length; i++) {
+		var $currentCell = cellList[i],
+			innerHTML = $currentCell.innerHTML,
+			matchResult = indexOfArray(innerHTML,searchStrArray);
+		if (matchResult.result) {
+			$currentCell.classList.remove("hide");
+			for(var ma = 0; ma < matchResult.matchArray.length; ma++){
+				var matchStr = matchResult.matchArray[ma],
+					lightHtml = "<span class='light'>"+matchStr+"</span>";
+				$currentCell.innerHTML = innerHTML.split(matchStr).join(lightHtml);//replaceAll
+			}
+		} else if($currentCell.querySelectorAll("span.light").length === 0){
+			$currentCell.classList.add("hide");
 		}
-	});
+	}
 	displayChapter();
 }
 function displayChapter(){
-	query2(".content .table").map(function(node){
-		query2(".table-row-group", node).map(function(node2){
-			var rowList = query2(".table-row", node2);
-			rowList.map(function(node3){
-				if(!node3.querySelectorAll(".table-cell:not(.hide)").length){
-					node3.classList.add("hide");
+	var tableList = document.querySelectorAll(".content .table");
+	for(var t = 0; t < tableList.length; t++){
+		var $currentTable = tableList[t],
+			groupList = $currentTable.querySelectorAll(".table-row-group");
+		for(var g = 0; g < groupList.length; g++){
+			var $currentGroup = groupList[g],
+				rowList = $currentGroup.querySelectorAll(".table-row");
+			for(var r = 0; r < rowList.length; r++){
+				var $currentRow = rowList[r];
+				if($currentRow.querySelectorAll(".table-cell:not(.hide)").length === 0){
+					$currentRow.classList.add("hide");
 				}else{
-					node3.classList.remove("hide");
-					removeChildNodesHide(node3);
+					$currentRow.classList.remove("hide");
+					removeChildNodesHide($currentRow);
 				}
-			});
-			if(!node2.querySelectorAll(".table-row:not(.hide)").length){
-				node2.classList.add("hide");
+			}
+			if($currentGroup.querySelectorAll(".table-row:not(.hide)").length === 0){
+				$currentGroup.classList.add("hide");
 			}else{
-				node2.classList.remove("hide");
-				var $currentGroupHeader = node2.querySelector(".table-row.chapter-header"),
-					$currentGroupContent = node2.querySelectorAll(".table-row:not(.chapter-header)");
+				$currentGroup.classList.remove("hide");
+				var $currentGroupHeader = $currentGroup.querySelector(".table-row.chapter-header"),
+					$currentGroupContent = $currentGroup.querySelectorAll(".table-row:not(.chapter-header)");
 				if($currentGroupHeader.classList.contains("hide")
 						&& $currentGroupContent[0].querySelectorAll(".table-cell")[0].innerHTML.indexOf("回合") === -1){
 					$currentGroupHeader.classList.remove("hide");
 					removeChildNodesHide($currentGroupHeader);
 				}else{
-					rowList.map(function(node3){
-						node3.classList.remove("hide");
-						removeChildNodesHide(node3);
-					});
+					for(var rr = 0; rr < rowList.length; rr++){
+						var $currentRow = rowList[rr];
+						$currentRow.classList.remove("hide");
+						removeChildNodesHide($currentRow);
+					}
 				}
 			}
-		});
-		if(!node.querySelectorAll(".table-row-group:not(.hide)").length){
-			node.classList.add("hide");
-		}else{
-			node.classList.remove("hide");
 		}
-	});
+		if($currentTable.querySelectorAll(".table-row-group:not(.hide)").length === 0){
+			$currentTable.classList.add("hide");
+		}else{
+			$currentTable.classList.remove("hide");
+		}
+	}
 }
 function removeChildNodesHide(element){
-	query2(".hide", element).map(function(node){
-		node.classList.remove("hide");
-	});
+	var childNodes = element.querySelectorAll(".hide");
+	for(var n = 0 ; n < childNodes.length; n++){
+		childNodes[n].classList.remove("hide");
+	}
 }
 function resetLightFont(){
-	query2("span.light").map(function(node){
-		node.outerHTML = node.innerHTML;
-	});
+	var lights = document.querySelectorAll("span.light");
+	for(var l = 0; l < lights.length; l++){
+		var $currentLight = lights[l];
+		$currentLight.outerHTML = $currentLight.innerHTML;
+	}
 }
-function indexOfArray(str, array){
-	var matchResult = [];
-	(array || []).map(function(a){
-		if(str.indexOf(a) > -1){
-			matchResult.push(a);
+function indexOfArray(str,array){
+	var matchResult = {
+		"result": false,
+		"matchArray": []
+	}
+	for(var i=0; i< array.length; i++){
+		if(str.indexOf(array[i]) > -1){
+			matchResult.result = true;
+			matchResult.matchArray.push(array[i]);
 		}
-	});
+	}
 	return matchResult;
-}
-function query2(query, selector){
-	return Array.prototype.slice.call((selector || document).querySelectorAll(query));
 }
 </script>
 </body>
