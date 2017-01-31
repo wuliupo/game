@@ -7,6 +7,7 @@
 <title>阴阳师手游</title>
 <style>
 body{background-color:#f1f1f1;font-family:'Open Sans', Helvetica, Tahoma, Arial, 'Microsoft YaHei', sans-serif;}
+h1{font-size:20px;}
 @media only screen and (min-width:0){html{font-size:14px;}}
 @media only screen and (min-width:992px){html{font-size:14.5px;}}
 @media only screen and (min-width:1200px){html{font-size:15px;}}
@@ -20,24 +21,23 @@ input:focus{outline:none;box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rg
 .table-row-group{display:table-row-group;}
 .table-row{display:table-row;}
 .table-row .table-cell:first-child,.table.clue .table-row .table-cell:nth-child(2){white-space:nowrap;vertical-align:top;}
-.table-cell{display:table-cell;padding:5px;text-align:left;vertical-align:middle;}
+.table-cell{display:table-cell;padding:5px;text-align:left;vertical-align:middle;word-wrap:break-word;word-break:break-all;}
 .chapter-header .table-cell{padding-top:10px;font-weight:bolder;}
 .table-row.chapter-header{border-bottom:1px solid #d0d0d0;}
 span.light{color:#dd4b39;}
-.items{margin:0;padding:4px;border:1px solid #888;line-height:30px;}
+.items{margin:0;padding:4px;border:1px solid #888;line-height:30px;overflow:hidden;}
 .items li{display:inline-block;margin:2px;cursor:pointer;text-decoration:underline;}
 .items b{float:right;}
-.quicknav li{display:block;}
-.quicknav.items{position:fixed;right:10%;bottom:initial;width:36px;background-color:#FFF;}
+.quicknav li{display:block;line-height:31px;}
+.quicknav.items{position:fixed;top:50px;right:10%;bottom:initial;width:36px;background-color:#FFF;}
 @media only screen and (min-width:950px){.items{position:fixed;top:10px;width:100px;margin-left:-150px;bottom:10px;overflow-y:auto;line-height:20px;}.items li{display:block;}}
-@media only screen and (max-width:640px){.search{left:10px;right:10px;margin-left:0;width:inherit;}}
+@media only screen and (max-width:640px){.search{left:8px;right:8px;margin-left:0;width:inherit;}.quicknav.items{right:8px;}.table{width:100%;}}
 </style>
 </head>
 <body>
 <div class="content">
 <h1>阴阳师手游妖怪出处汇总</h1>
-<p>这是悬赏封印活动需要击杀的各等级妖怪。本篇覆盖了探索副本、御魂以及妖气封印出现的怪物。击杀范围包括探索章节副本、结界图片、御魂副本、妖气封印、式神挑战、式神碎片、斗技。<a href="http://nixin.online/yys" target="_blank">http://nixin.online/yys</a></p>
-<p><a href="https://github.com/wuliupo/game/blob/master/yys/README.md">github.com/wuliupo/game/blob/master/yys/</a></p>
+<p>这是悬赏封印活动需要击杀的各等级妖怪。本篇覆盖了探索副本、御魂以及妖气封印出现的怪物。击杀范围包括探索章节副本、结界图片、御魂副本、妖气封印、式神挑战、式神碎片、斗技。<a href="http://nixin.online/yys" target="_blank">http://nixin.online/yys</a>, <a href="https://github.com/wuliupo/game/blob/master/yys/README.md">Github</a></p>
 <div class="search">
 	<input id="searchItem" oninput="search()"></input>
 </div>
