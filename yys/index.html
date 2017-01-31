@@ -1207,28 +1207,31 @@ function displayCell(searchStrArray, cellList){
 	displayChapter();
 }
 function displayChapter(){
-	query2("table").map(function(node){
-		query2("tbody", node).map(function(node2){
-			var rowList = query2("tr", node2);
-			rowList.map(function(node3){
-				if(!node3.querySelectorAll("td:not(.hide)").length){
-					node3.classList.add("hide");
+	query2("table").map(function(table){
+		query2("tbody", table).map(function(tbody){
+			var rowList = query2("tr", tbody);
+			rowList.map(function(tr){
+				if(allChildrenHide(tr, "td")){
+					tr.classList.add("hide");
 				}else{
-					node3.classList.remove("hide");
-					removeChildNodesHide(node3);
+					tr.classList.remove("hide");
+					removeChildNodesHide(tr);
 				}
 			});
-			toggle(node2, !node2.querySelectorAll("tr:not(.hide)").length);
+			toggle(tbody, allChildrenHide(tbody, "tr"), rowList[0]);
 		});
-		toggle(node, !node.querySelectorAll("tbody:not(.hide)").length);
+		toggle(table, allChildrenHide(table, "tbody"));
 	});
+}
+function allChildrenHide(node, tag){
+	return node.querySelectorAll(tag + ".hide").length === node.querySelectorAll(tag).length
 }
 function removeChildNodesHide(element){
 	query2(".hide", element).map(function(node){
 		node.classList.remove("hide");
 	});
 }
-function toggle(node, hide){
+function toggle(node, hide, head){
 	if(hide === undefined){
 		hide = node.classList.indexOf("hide") < 0;
 	}
@@ -1236,6 +1239,9 @@ function toggle(node, hide){
 		node.classList.add("hide");
 	}else{
 		node.classList.remove("hide");
+		if(head && head.getElementsByTagName('th').length > 0){
+			head.classList.remove("hide");
+		}
 	}
 }
 function resetLightFont(){
