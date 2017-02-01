@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-<meta name="author" content="ezreal.Ni(WeChat:lover86370881)">
 <title>阴阳师手游</title>
 <style>
 body{background-color:#f1f1f1;font-family:'Open Sans',Helvetica,Tahoma,Arial,'Microsoft YaHei',sans-serif;font-size:14px;}
@@ -17,6 +16,7 @@ table{width:100%;text-align:left;line-height:20px;}
 caption{text-align:left;font-size:20px;line-height:30px;padding:50px 0 10px;}
 td{min-width:200px;word-wrap:break-word;word-break:break-all;vertical-align:top;padding:4px 8px 4px 0;line-height:16px;}
 th{padding-top:10px;}
+th b{color:#F00;}
 span.light{color:#dd4b39;}
 .items{margin:0;padding:4px;border:1px solid #888;line-height:30px;overflow:hidden;}
 .items li{display:inline-block;margin:2px;cursor:pointer;text-decoration:underline;}
@@ -42,7 +42,7 @@ td:first-child{width:86px;}
 <h1>阴阳师手游妖怪出处汇总</h1>
 <p>这是悬赏封印活动需要击杀的各等级妖怪。本篇覆盖了探索副本、御魂以及妖气封印出现的怪物。击杀范围包括探索章节副本、结界图片、御魂副本、妖气封印、式神挑战、式神碎片、斗技。<a href="http://nixin.online/yys" target="_blank">http://nixin.online/yys</a>, <a href="https://github.com/wuliupo/game/blob/master/yys/README.md">Github</a></p>
 <div class="search">
-	<input id="searchItem" oninput="search()"></input>
+	<input id="searchItem" oninput="search()" placeholder="妖怪名 可以两个"></input>
 </div>
 <ul class="items" id="items"><li>天邪鬼绿</li><li>九命猫</li><li>提灯小僧</li><li>座敷童子</li><li>天邪鬼黄</li><li>铁鼠</li><li>三尾狐</li><li>雨女</li><li>青蛙瓷器</li><li>管狐</li><li>帚神</li><li>食发鬼</li><li>灯笼鬼</li><li>巫蛊师</li><li>蝴蝶精</li><li>天邪鬼赤</li><li>鲤鱼精</li><li>河童</li><li>唐纸伞妖</li><li>桃花妖</li><li>天邪鬼青</li><li>山兔</li><li>武士之灵</li><li>丑时之女</li><li>寄生魂</li><li>饿鬼</li><li>童女</li><li>童男</li><li>涂壁</li><li>兵俑</li><li>盗墓小鬼</li><li>狸猫</li><li>跳跳哥哥</li><li>跳跳弟弟</li><li>跳跳妹妹</li><li>赤舌</li><li>山童</li><li>萤草</li><li>鸦天狗</li><li>独眼小僧</li><li>觉</li><li>镰鼬</li><li>孟婆</li> <b>移除</b></ul>
 <script>
@@ -55,7 +55,10 @@ document.getElementById('items').onclick = function(e){
 		if(oldV.length > 1){
 			oldV = [];
 		}
-		oldV.push(e.target.innerText || e.target.textContent);
+		newV = (e.target.innerText || e.target.textContent || '').trim();
+		if(!oldV.includes(newV)){
+			oldV.push(newV);
+		}
 		newV = oldV.join(' ').trim();
 	}
 	search(document.getElementById('searchItem').value = newV);
@@ -1176,6 +1179,9 @@ function search(matchValue) {
 	matchValue = (matchValue || document.getElementById("searchItem").value || '').trim();
 	removeChildNodesHide(document.body);
 	resetLightFont();
+	query2("th b").map(function(node){
+		node.innerHTML = '';
+	});
 	matchValue && displayCell(searchClue(matchValue), query2("td"));
 }
 function searchClue(searchStr){
@@ -1239,8 +1245,22 @@ function toggle(node, hide, head){
 		node.classList.add("hide");
 	}else{
 		node.classList.remove("hide");
-		if(head && head.getElementsByTagName('th').length > 0){
-			head.classList.remove("hide");
+		if(head){
+			let th = head.getElementsByTagName('th')[0], cont = 0;
+			if(th){
+				head.classList.remove("hide");
+				query2('.light', node).map(function(light){
+					cont += parseInt(((light.nextSibling || {}).data || '').replace('×', '')) || 0;
+				});
+				if(cont > 0){
+					var node = th.querySelector('b');
+					if(node){
+						node.innerHTML = ' (' + cont + ')';
+					} else {
+						th.innerHTML += '<b> (' + cont + ')</b>';
+					}
+				}
+			}
 		}
 	}
 }
