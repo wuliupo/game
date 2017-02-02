@@ -1250,7 +1250,7 @@ function toggle(node, hide, head){
 			if(th){
 				head.classList.remove("hide");
 				query2('.light', node).map(function(light){
-					cont += parseInt(((light.nextSibling || {}).data || '').replace('×', '')) || 0;
+					cont += parseInt(((light.nextSibling || {}).data || '').substring(1)) || 0;
 				});
 				if(cont > 0){
 					var node = th.querySelector('b');
