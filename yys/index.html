@@ -44,7 +44,7 @@ td:first-child{width:86px;}
 <div class="search">
 	<input id="searchItem" oninput="search()" placeholder="妖怪名 可以两个"></input>
 </div>
-<ul class="items" id="items"><li>天邪鬼绿</li><li>九命猫</li><li>提灯小僧</li><li>座敷童子</li><li>天邪鬼黄</li><li>铁鼠</li><li>三尾狐</li><li>雨女</li><li>青蛙瓷器</li><li>管狐</li><li>帚神</li><li>食发鬼</li><li>灯笼鬼</li><li>巫蛊师</li><li>蝴蝶精</li><li>天邪鬼赤</li><li>鲤鱼精</li><li>河童</li><li>唐纸伞妖</li><li>桃花妖</li><li>天邪鬼青</li><li>山兔</li><li>武士之灵</li><li>丑时之女</li><li>寄生魂</li><li>饿鬼</li><li>童女</li><li>童男</li><li>涂壁</li><li>兵俑</li><li>盗墓小鬼</li><li>狸猫</li><li>跳跳哥哥</li><li>跳跳弟弟</li><li>跳跳妹妹</li><li>赤舌</li><li>山童</li><li>萤草</li><li>鸦天狗</li><li>独眼小僧</li><li>觉</li><li>镰鼬</li><li>孟婆</li> <b>移除</b></ul>
+<ul class="items" id="items"><li>天邪鬼赤</li><li>天邪鬼青</li><li>天邪鬼绿</li><li>天邪鬼黄</li><li>九命猫</li><li>提灯小僧</li><li>座敷童子</li><li>铁鼠</li><li>三尾狐</li><li>雨女</li><li>青蛙瓷器</li><li>管狐</li><li>帚神</li><li>食发鬼</li><li>灯笼鬼</li><li>巫蛊师</li><li>蝴蝶精</li><li>鲤鱼精</li><li>河童</li><li>唐纸伞妖</li><li>桃花妖</li><li>山兔</li><li>武士之灵</li><li>丑时之女</li><li>寄生魂</li><li>饿鬼</li><li>童女</li><li>童男</li><li>涂壁</li><li>兵俑</li><li>盗墓小鬼</li><li>狸猫</li><li>跳跳哥哥</li><li>跳跳弟弟</li><li>跳跳妹妹</li><li>赤舌</li><li>山童</li><li>萤草</li><li>鸦天狗</li><li>独眼小僧</li><li>觉</li><li>镰鼬</li><li>孟婆</li> <b>移除</b></ul>
 <script>
 document.getElementById('items').onclick = function(e){
 	var oldV = (document.getElementById('searchItem').value || '').trim(), newV = '';
@@ -70,6 +70,7 @@ document.getElementById('items').onclick = function(e){
     <li><a href="#equipment">御魂</a></li>
     <li><a href="#monster">妖气</a></li>
     <li><a href="#clue">线索</a></li>
+    <li><a href="#assign">委派</a></li>
 </ul>
 <script>
 document.getElementById('quicknav').onclick = function(e){
@@ -1171,6 +1172,41 @@ document.getElementById('quicknav').onclick = function(e){
 			<td>涂壁</td>
 			<td>第3/4/5/6/7/8/11/12/14章 御魂1 妖气封印</td>
 		</tr>
+	</tbody>
+</table>
+<table id="assign">
+	<caption>式神委派</caption>
+	<thead>
+		<tr><th>任务</th><th>完美达成时奖励</th><th>推荐式神</th></tr>
+	</thead>
+	<tbody>
+		<tr><td>原谅与惩罚</td><td>一目连，惠比寿，络新妇，雪女，铁鼠，独眼小僧，丑时之女</td><td></td></tr>
+		<tr><td>高兴的烦恼</td><td>青行灯，雪女，樱花妖，吸血姬，莹草，山兔，管狐</td><td></td></tr>
+		<tr><td>飞来横祸</td><td>花鸟卷，吸血姬，犬神，青坊主，古笼火，丑时之女，武士之灵</td><td></td></tr>
+		<tr><td>讲故事的人</td><td>荒川之主，白狼，般若，雪女，鸦天狗，管狐，焦土</td><td></td></tr>
+		<tr><td>漩涡</td><td>小鹿男，姑获鸟，青坊主，惠比寿，独眼小僧，巫蛊师，蝴蝶精</td><td></td></tr>
+		<tr><td>乱糟糟的庭院</td><td>酒吞，红叶，骨女，妖狐，河童，鲤鱼精，座敷童子</td><td></td></tr>
+		<tr><td>悬崖峭壁</td><td>酒吞，红叶，傀儡师，妖狐，觉，蝴蝶精，莹草</td><td></td></tr>
+		<tr><td>虫的巢穴</td><td>荒川，桃花，般若，白狼等</td><td></td></tr>
+		<tr><td>失眠的村庄</td><td>妖刀姬，桃花，孟婆等</td><td></td></tr>
+		<tr><td>山路同行</td><td>阎摩，鬼使黑，鬼使白，判官，山童，首无，蝴蝶精</td><td></td></tr>
+		<tr><td>指挥</td><td>辉夜姬，烟烟罗，海坊主，傀儡师，食发鬼，觉，山兔</td><td></td></tr>
+		<tr><td>会说话的魔像</td><td>大天狗，吸血姬，黑童子，白童子，巫蛊师，鸦天狗，武士之灵</td><td></td></tr>
+		<tr><td>家徒四壁</td><td>茨木童子，等其他式神碎片</td><td></td></tr>
+		<tr><td>封魔之刻</td><td>阎魔，等其他式神碎片</td><td></td></tr>
+		<tr><td>奇怪的酒壶</td><td>荒，二口女，凤凰火，犬神，河童，丑时之女，鲤鱼精</td><td>酒吞+狸猫+青蛙瓷器</td></tr>
+		<tr><td>谁能带来福运</td><td>随机一枚SSR碎片</td><td>招福达摩+惠比寿+座敷童子</td></tr>
+		<tr><td colspan="3"><hr></td></tr>
+		<tr><td>梦境的裂缝</td><td></td><td>食梦貘+巫蛊师+蝴蝶精</td></tr>
+		<tr><td>会说话的佛像</td><td></td><td>青坊主+独眼小僧+提灯小僧</td></tr>
+		<tr><td>钓鱼比赛</td><td></td><td>惠比寿+荒川+金鱼姬+海坊主</td></tr>
+		<tr><td>缺失的花札</td><td></td><td>天邪鬼黄、天邪鬼绿、天邪鬼青、天邪鬼赤</td></tr>
+		<tr><td>谁擅长驱鼠</td><td></td><td>九命猫+铁鼠</td></tr>
+		<tr><td>夏天的绵绵冰</td><td></td><td>雪女</td></tr>
+		<tr><td>火海</td><td></td><td>雨女+雪女</td></tr>
+		<tr><td>有石臼没锤子</td><td></td><td>山童+独眼小僧</td></tr>
+		<tr><td>西瓜刀</td><td></td><td>兵俑+犬神+妖刀姬</td></tr>
+		<tr><td>馋嘴的麻雀</td><td></td><td>犬神+丑时之女+九命猫</td></tr>
 	</tbody>
 </table>
 </div>
